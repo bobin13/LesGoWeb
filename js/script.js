@@ -1,43 +1,38 @@
 $(document).ready(function () {
-  doit();
+  var users = GetAllUser();
 });
 
-function doit() {
-  fetch("http://localhost:5152/api/User")
-      .then(response => {
-          // Check if the request was successful (status code 200-299)
-          if (!response.ok) {
-              throw new Error(HTTP error! Status: ${response.status});
-          }
-
-          // Parse the response as JSON
-          return response.json();
-      })
-      .then(data => {
-          // Handle the data from the response
-          console.log('Data received js:', data);
-      })
-      .catch(error => {
-          // Handle any errors that occurred during the fetch
-          console.error('Fetch error:', error);
-      });
-}
-function dojquery() {
+function GetAllUser() {
   $.ajax({
-      url: "http://localhost:5152/api/User",
+      url: "http://localhost:5152/api/Ride/1b34c131-ee30-4643-8a4e-6d961b4d8288",
       type: "GET",
       crossDomain: true, // Enable CORS
       dataType: "json", // Expected data type
       success: function (data) {
           // Callback function executed on successful response
           console.log("Data received jquery:", data);
-
-          // Manipulate the data or update the DOM as needed
-          $("#result").text(data.someProperty);
+          displayRidesData(data);
       },
       error: function (xhr, status, error) {
           // Callback function executed on error
           console.error("GET request failed:", status, error);
+          return null;
       }
+  });
+}
+//function to populate ride list.
+function displayRidesData(data) {
+  $.each(data, function (index, ride) {
+      var date = new Date(parseInt(ride.rideTimeString)).toLocaleDateString();
+      var newListItem = $(<li class="list-group-item" >Date:${date} | Riders: ${ride.users.length}</li>);
+      $("#rideList").append(newListItem);
+  });
+}
+
+function displayListData(data) {
+  $.each(data, function (index, item) {
+
+      var newListItem = $(<li class="list-group-item" >${item.name}</li>);
+      $("#rideList").append(newListItem);
   });
 }

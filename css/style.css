@@ -1,39 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Roboto&display=swap');
-
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
-    background-color: #f4e8dd;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(#1A120B, #3C2A21);
 }
 
-.container {
-    margin: 40px auto;
-    max-width: 1200px;
+#listDiv {
+    height: 400px;
+    overflow: auto;
+    max-width: 70%;
+
 }
 
-header {
-    background-color: #a18181;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #a18181;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-nav a:hover {
-    background-color: #555;
+#listDiv li {
+    color: #D5CEA3;
+    background-color: #3C2A21;
+    border: 2px solid #D5CEA3;
+    margin: 5px;
 }
