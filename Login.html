@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="css/loginPage.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form" class="login-form">
+            <input id="username" type="text" placeholder="Username" value="bobin13" required>
+            <input id="password" type="password" placeholder="Password" value="12345" required>
+            <button id="submit">kkk</button>
+        </form>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $("#login-form").submit(function (e) {
+            e.preventDefault();
+        });
+
+        $('#submit').click(
+
+            function GetAllUser() {
+                let usernameInput = $('#username').val();
+                let passwordInput = $('#password').val();
+
+                var postData = {
+                    username: usernameInput,
+                    password: passwordInput
+                }
+                $.ajax({
+                    url: "http://localhost:5152/api/Login",
+                    type: "POST",
+                    data: JSON.stringify(postData),
+                    crossDomain: true,
+                    contentType: "application/json; charset=utf-8", // Enable CORS
+                    dataType: "json", // Expected data type
+                    success: function (data) {
+                        // Callback function executed on successful response
+                        if (data != null) {
+                            window.location.href = "/index.html"
+                        }
+
+
+                    },
+                    error: function (xhr, status, error) {
+                        // Callback function executed on error
+                        console.error("GET request failed:", status, error);
+                        return null;
+                    }
+                });
+            });
+    });
+</script>
+
+</html>
