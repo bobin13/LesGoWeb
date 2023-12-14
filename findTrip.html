@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="js/findtripjs.js"></script>
+    <title>Find Trip!</title>
+</head>
+<header>
+    <h2>Find A Ride</h2>
+</header>
+
+<body>
+     <div>
+        <input type="text" id="datepicker" placeholder="Pick a Date!"><br>
+        <input type="text" class="searchInputs" id="originInput" placeholder="Origin City" value="london" required>
+        <input type="text" class="searchInputs" id="destinationInput" placeholder="Destination City" value="oakville"
+            required><br>
+        <button id="find">Find Trips</button>
+    </div>
+    <main>
+        <h2>Available Rides</h2>
+
+        <div class="container mt-4" id="listDiv">
+            <ul class="list-group" id="rideList">
+
+            </ul>
+        </div>
+
+    </main>
+</body>
+
+</html>
