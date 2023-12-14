@@ -1,0 +1,48 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#trip-form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 400px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+}
+
+input[type="date"],
+input[type="time"] {
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+    padding: 8px;
+}
+
+input[type="submit"] {
+    background-color: #D5CEA3;
+    color: #4F4A45;
+    cursor: pointer;
+}
