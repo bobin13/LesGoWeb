@@ -2,19 +2,124 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(#1A120B, #3C2A21);
+    background: linear-gradient(#121212, #1e1e1e);
+    text-align: center;
+
 }
 
 #listDiv {
-    height: 400px;
-    overflow: auto;
     max-width: 70%;
 
 }
 
+a {
+    padding: 15px;
+    color: #D5CEA3;
+}
+
+a:hover {
+    color: #f1d105;
+}
+
 #listDiv li {
     color: #D5CEA3;
-    background-color: #3C2A21;
+    background-color: #4F4A45;
     border: 2px solid #D5CEA3;
     margin: 5px;
+}
+
+#listDiv li:hover {
+    border: 3px solid #f1d105;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    color: #D5CEA3;
+    max-width: 800px;
+    min-height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    background-color: #444;
+    border: 1px solid #666;
+    color: #fff;
+}
+
+.ride {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.user-info {
+    font-weight: bold;
+}
+
+.list-group-item {
+    width: 100%;
+}
+
+#datepicker {
+    margin-top: 20px;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: large;
+    color: #fff;
+}
+
+.navBtn {
+    width: 150px;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    border-radius: 4px;
+    background-color: #D5CEA3;
+    color: #4F4A45;
+    cursor: pointer;
+    outline: none;
+}
+
+#find {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #D5CEA3;
+    color: #4F4A45;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+}
+
+.searchInputs {
+    margin-top: 20px;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: large;
+    color: #fff;
 }
