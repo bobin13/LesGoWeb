@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Trip!</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="css/postTrip.css">
+</head>
+
+<body>
+    <div id="trip-form">
+        <h2>Create a Trip</h2>
+        <form id="form" action="#" method="post">
+            <label for="origin">Origin City:</label>
+            <input type="text" id="origin" name="origin" required>
+
+            <label for="destination">Destination City:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required>
+
+            <label for="seats">Number of Seats Available:[1-4]</label>
+            <input type="number" id="seats" name="seats" min="0" max="4">
+
+            <input type="submit" id="submit" value="Create Trip">
+        </form>
+    </div>
+</body>
+<script>
+    var userId = "";
+    $(document).ready(function () {
+        var temp = window.location.href.split('=');
+        userId = temp[1];
+
+        $("#form").submit(function (e) {
+            e.preventDefault();
+        });
+        $('#submit').click(function () {
+            var origin = $('#origin').val();
+            var destination = $('#destination').val();
+            var date = $('#date').val();
+            var time = $('#time').val();
+            var price = $('#price').val();
+            var seatsAvail = $('#seats').val();
+            var datetime = +new Date(date + ' ' + time);
+            console.log(`${origin} ${destination} ${datetime} ${price} ${seatsAvail}`);
+            var postData = {
+                Origin: origin,
+                Destination: destination,
+                Users: [],
+                Price: price,
+                RideTimeString: datetime + ""
+            }
+            createTrip(userId, postData);
+        });
+
+        function createTrip(userId, postData) {
+            $.ajax({
+                url: `http://localhost:5152/api/Ride/postRide/${userId}`,
+                type: "POST",
+                data: JSON.stringify(postData),
+                crossDomain: true,
+                contentType: "application/json; charset=utf-8", // Enable CORS
+                dataType: "json", // Expected data type
+                success: function (data) {
+                    // Callback function executed on successful response
+
+                    console.log(data);
+                    alert("Trip Created!");
+                    $('#form')[0].reset();
+                    //setting listitem click to move to another page with 
+                    $('.list-group-item').click(function () {
+                        var firstChildValue = $(this).find('#rideId').text();
+
+                    });
+                },
+                error: function (xhr, status, error) {
+                    // Callback function executed on error
+                    console.error("GET request failed:", status, error);
+                    return null;
+                }
+            });
+        }
+    });
+</script>
+
+</html>
