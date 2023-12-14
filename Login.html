@@ -16,7 +16,7 @@
         <form id="login-form" class="login-form">
             <input id="username" type="text" placeholder="Username" value="bobin13" required>
             <input id="password" type="password" placeholder="Password" value="12345" required>
-            <button id="submit">kkk</button>
+            <button id="submit">Login</button>
         </form>
     </div>
 
@@ -47,7 +47,7 @@
                     success: function (data) {
                         // Callback function executed on successful response
                         if (data != null) {
-                            window.location.href = "/index.html"
+                            window.location.href = `/index.html?id=${data.id}`
                         }
 
 
